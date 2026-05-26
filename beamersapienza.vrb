@@ -1,0 +1,17 @@
+\frametitle{Look}
+\begin{itemize}
+^^I^^I\item To insert a final slide with the title and final thanks, use \verb|\backmatter|.
+^^I^^I\begin{itemize}
+^^I^^I^^I\item The title also appears in footlines along with the author name, you can change this text with \verb|\footlinepayoff|
+^^I^^I^^I\item You can remove the title from the final slide with \verb|\backmatter[notitle]|
+^^I^^I\end{itemize}
+^^I^^I\item The aspect ratio defaults to 16:9, and you should not change it to 4:3
+^^I^^Ifor old projectors as it is inherently impossible to perfectly convert a
+^^I^^I16:9 presentation to 4:3 one; spacings \emph{will} break
+^^I^^I\begin{itemize}
+^^I^^I^^I\item The \texttt{aspectratio} argument to the \texttt{beamer} class is
+^^I^^I^^Ioverridden by the SINTEF theme
+^^I^^I^^I\item If you \emph{really} know what you are doing, check the package
+^^I^^I^^Icode and look for the \texttt{geometry} class.
+^^I^^I\end{itemize}
+^^I\end{itemize}
