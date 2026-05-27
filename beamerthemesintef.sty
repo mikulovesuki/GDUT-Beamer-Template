@@ -290,7 +290,7 @@
 {
     \begingroup
     \themecolor{main}
-    \begin{frame}{Table of Contents}
+    \begin{frame}{目录}
         \tableofcontents[currentsection]
     \end{frame}
     \endgroup
@@ -301,7 +301,8 @@
 
 % automate subtitle of each frame
 \makeatletter
-    \pretocmd\beamer@checkframetitle{\framesubtitle{\thesection \, \secname}}
+    % Use beamer's \insertsection to ensure subtitles match the TOC
+    \pretocmd\beamer@checkframetitle{\framesubtitle{\insertsection}}{}
 \makeatother
 
 % avoid numbering of frames that are breaked into multiply slides
