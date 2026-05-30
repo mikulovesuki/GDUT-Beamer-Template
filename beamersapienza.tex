@@ -34,26 +34,44 @@
 
 \section{各种选举方法的介绍}
 
-\begin{frame}{系列决胜法的流程图}
+\begin{frame}{系列决胜法}
     \begin{center}
         \begin{tikzpicture}[scale=0.5, transform shape] 
             \node (start) [startstop] {开始};
             \node (pro1) [process, below=of start] {计算每个候选人的得票数};
             \node (dec1) [decision, below=of pro1] {是否仅剩下一名候选人？};
-            \node (pro2) [process, right=of dec1] {删除得票最少的候选人};
+            \node (pro2) [process, right=of dec1] {删除第一名得票最少的候选人};
             
             \node (pro3) [process, below=of dec1] {剩下候选人即为获胜者};
             \node (stop) [startstop, below=of pro3] {结束};
 
             \draw [arrow] (start) -- (pro1);
             \draw [arrow] (pro1) -- (dec1);
-            
             \draw [arrow] (dec1) -- node[anchor=east] {是} (pro3);
             \draw [arrow] (dec1) -- node[anchor=south] {否} (pro2);
-            
-            % 使用 |- 绘制直角转折线 (先向上/下，再向左/右)
             \draw [arrow] (pro2) |- (pro1);
-           
+            \draw [arrow] (pro3) -- (stop);
+
+        \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Coombs法}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.5, transform shape] 
+            \node (start) [startstop] {开始};
+            \node (pro1) [process, below=of start] {计算每个候选人的得票数};
+            \node (dec1) [decision, below=of pro1] {是否仅剩下一名候选人？};
+            \node (pro2) [process, right=of dec1] {删除最后一名得票最多的候选人};
+            
+            \node (pro3) [process, below=of dec1] {剩下候选人即为获胜者};
+            \node (stop) [startstop, below=of pro3] {结束};
+
+            \draw [arrow] (start) -- (pro1);
+            \draw [arrow] (pro1) -- (dec1);
+            \draw [arrow] (dec1) -- node[anchor=east] {是} (pro3);
+            \draw [arrow] (dec1) -- node[anchor=south] {否} (pro2);
+            \draw [arrow] (pro2) |- (pro1);
             \draw [arrow] (pro3) -- (stop);
 
         \end{tikzpicture}
