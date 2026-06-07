@@ -34,13 +34,23 @@
 
 \section{各种选举方法的介绍}
 
+\begin{frame}
+    \begin{itemize}
+        \item 简单多数法 \pause 
+        \item 单论决胜法 \pause
+        \item 系列决胜法 \pause
+        \item Coombs法 \pause
+        \item Borda计数法
+    \end{itemize}
+\end{frame}
+
 \begin{frame}{系列决胜法}
     \begin{center}
         \begin{tikzpicture}[scale=0.5, transform shape] 
             \node (start) [startstop] {开始};
             \node (pro1) [process, below=of start] {计算每个候选人的得票数};
             \node (dec1) [decision, below=of pro1] {是否仅剩下一名候选人？};
-            \node (pro2) [process, right=of dec1] {删除第一名得票最少的候选人};
+            \node (pro2) [process, right=of dec1] {删除位次第一得票数最少的候选人};
             
             \node (pro3) [process, below=of dec1] {剩下候选人即为获胜者};
             \node (stop) [startstop, below=of pro3] {结束};
@@ -62,7 +72,7 @@
             \node (start) [startstop] {开始};
             \node (pro1) [process, below=of start] {计算每个候选人的得票数};
             \node (dec1) [decision, below=of pro1] {是否仅剩下一名候选人？};
-            \node (pro2) [process, right=of dec1] {删除最后一名得票最多的候选人};
+            \node (pro2) [process, right=of dec1] {删除位次倒数第一得票数最多的候选人};
             
             \node (pro3) [process, below=of dec1] {剩下候选人即为获胜者};
             \node (stop) [startstop, below=of pro3] {结束};
@@ -98,12 +108,24 @@
 \section{采用系列决胜法在推选过程中可能出现的情况}
 
 \begin{frame}
-	尽管开普敦在第1轮投票中是得票最少的城市之一，但并不是在淘汰布宜诺斯艾
-	利斯后下一个被淘汰的如果第2轮投票中投给斯德哥尔席的19禀在第3轮投票中都
-	投给开普敦，那么开普敦将得到22+19=41票，第3轮淘汰的将是罗马，而开普敦将在
-	最后一轮投狈中与雅典对决．二者之中哪个会获胜？如果投给罗马的35票在最后一轮
-	投票中都投给开普敦，那么开普敦将是最终的获胜者。这就是说，采用系列决胜法在
-	最初一轮投票中差点被淘汰的城市也可能最终胜！
+    \begin{overprint}
+        \onslide<2-3> 尽管开普敦在第1轮投票中是得票最少的城市之一，但并不是在淘汰布宜诺斯艾利斯后下一个被淘汰的。
+        \onslide<4-5> 如果第2轮投票中投给斯德哥尔席的19票在第3轮投票中都投给开普敦，那么开普敦将得到22+19=41票，第3轮淘汰的将是罗马，而开普敦将在最后一轮投票中与雅典对决。二者之中哪个会获胜？
+        \onslide<6-> 如果投给罗马的35票在最后一轮投票中都投给开普敦，那么开普敦将是最终的获胜者。
+    \end{overprint}
+    \begin{table}{2004 年奥运会举办城市各轮投票结果}
+        \begin{tabular}{cccccc}
+            \toprule
+            城市 & 雅典 & 布宜诺斯艾利斯 & 开普敦 & 罗马 & 斯德哥尔摩 \\
+            \midrule 
+            \onslide<1-> 第1轮票数 & 32 & 16 & 16 & 23 & 20 \\
+            \onslide<3-> 第2轮票数 & 38 &    & 22 & 28 & 19 \\
+            \onslide<5-> 第3轮票数 & 38 &    & 41 & 28 &    \\
+            \onslide<7-> 第4轮票数 & 38 &    & 69 &    &    \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+        \onslide<8> 这就是说，采用系列决胜法在最初一轮投票中差点被淘汰的城市也可能最终胜！
 \end{frame}
 
 \section{采用系列决胜法可能违反单调性准则}
