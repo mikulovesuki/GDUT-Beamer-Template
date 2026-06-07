@@ -50,7 +50,7 @@
             \node (start) [startstop] {开始};
             \node (pro1) [process, below=of start] {计算每个候选人的得票数};
             \node (dec1) [decision, below=of pro1] {是否仅剩下一名候选人？};
-            \node (pro2) [process, right=of dec1] {删除第一名得票最少的候选人};
+            \node (pro2) [process, right=of dec1] {删除位次第一得票数最少的候选人};
             
             \node (pro3) [process, below=of dec1] {剩下候选人即为获胜者};
             \node (stop) [startstop, below=of pro3] {结束};
@@ -72,7 +72,7 @@
             \node (start) [startstop] {开始};
             \node (pro1) [process, below=of start] {计算每个候选人的得票数};
             \node (dec1) [decision, below=of pro1] {是否仅剩下一名候选人？};
-            \node (pro2) [process, right=of dec1] {删除最后一名得票最多的候选人};
+            \node (pro2) [process, right=of dec1] {删除位次倒数第一得票数最多的候选人};
             
             \node (pro3) [process, below=of dec1] {剩下候选人即为获胜者};
             \node (stop) [startstop, below=of pro3] {结束};
